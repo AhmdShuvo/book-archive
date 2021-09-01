@@ -15,6 +15,7 @@ const ViewData=()=>{
     .then(data=>{    
         loadData(data.docs.slice(0,4))
        if(data.docs.length===0){
+        const totalResults=document.getElementById('totalresults').textContent='';
         const notMatched=document.getElementById('not-matched').innerText="Search Results did not matched"
        }
        else{
