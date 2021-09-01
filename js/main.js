@@ -10,8 +10,8 @@ const ViewData=()=>{
    }
    else{
     const ErrorField=document.getElementById('Error').textContent='';
-    const url1= `http://openlibrary.org/search.json?q=${searchText}`;
-    fetch(url1).then(res=>res.json())
+    const url= `https://openlibrary.org/search.json?q=${searchText}`;
+    fetch(url).then(res=>res.json())
     .then(data=>{    
         loadData(data.docs.slice(0,4))
        if(data.docs.length===0){
