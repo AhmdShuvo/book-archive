@@ -19,24 +19,38 @@
 
 <body class="body">
     <main>
+
+       
         <section class="container">
             <h1 class=" text-center mt-5"> Search books </h1>
   
           <!-- Input Section  -->
-          <div class="input-group mb-3 mt-5">
+          <div class="input-group mb-4 mt-5">
               <input id="search" type="text" class="form-control p-3 me-2" placeholder="Search For your books " aria-describedby="button-addon2">
               <button onclick="ViewData()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
             </div>
         </section>
 
+         <!-- ERROR SECTION  -->
 
-        <section class="container" >
+
+         <section>
+            <h1 id="Error" class="text-center"></h1>
+        </section>
+
+
+        <section class="m-3" >
 
             <h1 id="totalresults"></h1>
-              <div id="results" class="mt-5 row row-cols-1 row-cols-md-3 p-4 m-2 g-4" >
+              <div id="results" class="mt-5 row row-cols-1 row-cols-md-4 p-4 m-2 g-4" >
 
 
               </div>
+        </section>
+
+        <section>
+            <h1 class="text-center" id="not-matched"></h1>
+
         </section>
 
   </main>
