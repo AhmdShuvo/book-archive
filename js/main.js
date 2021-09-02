@@ -12,11 +12,13 @@ const ViewData=()=>{
     searcField.value='';
     const results=document.getElementById('results').textContent='';
     const notMatched=document.getElementById('not-matched').textContent='';
-
+ 
 
    if(searchText===''){
     const totalResults=document.getElementById('totalresults').textContent='';
+    toggoleLoader('none');
     const ErrorField=document.getElementById('Error').innerText=`Search Box Can not Be empty. Please Write Something to Search`;
+    
    }
    else{
 
@@ -37,6 +39,7 @@ const ViewData=()=>{
         const totalResults=document.getElementById('totalresults').textContent='';
         // set text error for Not matching results //
         const notMatched=document.getElementById('not-matched').innerText="Search Results did not matched"
+        
        }
        else{
         const totalResults=document.getElementById('totalresults').
