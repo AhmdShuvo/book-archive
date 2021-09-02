@@ -12,6 +12,7 @@ const ViewData=()=>{
     searcField.value='';
     const results=document.getElementById('results').textContent='';
     const notMatched=document.getElementById('not-matched').textContent='';
+    const totalResults=document.getElementById('totalresults').textContent='';
  
 
    if(searchText===''){
