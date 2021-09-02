@@ -16,6 +16,7 @@ const ViewData=()=>{
    if(searchText===''){
     const totalResults=document.getElementById('totalresults').textContent='';
     const ErrorField=document.getElementById('Error').innerText=`Search Box Can not Be empty. Please Write Something to Search`;
+    toggoleLoader('none')
    }
    else{
 
