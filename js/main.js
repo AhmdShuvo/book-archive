@@ -8,15 +8,15 @@ const ViewData=()=>{
     const searcField=document.getElementById('search');
     const searchText=searcField.value;
 
-    // remove Previous data //
+    // remove Previous data 
     searcField.value='';
     const results=document.getElementById('results').textContent='';
     const notMatched=document.getElementById('not-matched').textContent='';
-    const totalResults=document.getElementById('totalresults').textContent='';
+
+
    if(searchText===''){
     const totalResults=document.getElementById('totalresults').textContent='';
     const ErrorField=document.getElementById('Error').innerText=`Search Box Can not Be empty. Please Write Something to Search`;
-    toggoleLoader('none')
    }
    else{
 
@@ -41,13 +41,14 @@ const ViewData=()=>{
        else{
         const totalResults=document.getElementById('totalresults').
         //    showimg 10 results //
-        innerText=`shwowing ${data.docs.slice(0,10).length} of  ${data.docs.length} Books `   
+        innerText=`shwowing ${data.docs.slice(0,10).length} of  ${data.docs.length} results `   
        }
     });
    }
 }
    const loadData= (books=>{
     books.forEach(book=>{
+        console.log(book);
 
             //  check for Not match search //
         if(!book){
@@ -62,13 +63,13 @@ const ViewData=()=>{
    
         const div=document.createElement('div');
     div.innerHTML=`
-    <div class="card mb-3 text-dark">
-  <img src="${`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}" class="card-img-top" alt="...">
-  <div class="card-body">
-  <h5 class="card-title fs-1  text-center">${book.title}</h5>
+    <div class="card mb-3 text-dark p-3">
+  <img src="${`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}" class="card-img-top img-fluid p-2" alt="...">
+  <div class="card-body h-full w-auto">
+  <h5 class="card-title fs-2  text-center"> ${book.title}</h5>
          <h5 class="card-title fs-3 text-center"> Author name : ${book.author_name}</h5>
-         <h5 class="card-title fs-3 text-center">First released : ${book.publish_date[0]}</h5>
-         <h5 class="card-title fs-3 text-center">publisher : ${book.publisher[0]}</h5>
+         <h5 class="card-title fs-5 text-center">First released : ${book.first_publish_year}</h5>
+         <h5 class="card-title fs-5 text-center">publisher : ${book.publisher[0]}</h5>
    
   </div>
 </div>
