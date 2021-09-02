@@ -1,6 +1,14 @@
+//  Onclcick Function ///
+
 const ViewData=()=>{
+    // Spinner Toggle //
+    toggoleLoader('block')
+
+    // get seach value //
     const searcField=document.getElementById('search');
     const searchText=searcField.value;
+
+    // remove Previous data //
     searcField.value='';
     const results=document.getElementById('results').textContent='';
     const notMatched=document.getElementById('not-matched').textContent='';
@@ -9,28 +17,44 @@ const ViewData=()=>{
     const ErrorField=document.getElementById('Error').innerText=`Search Box Can not Be empty. Please Write Something to Search`;
    }
    else{
+
+    //  remove filed value//
     const ErrorField=document.getElementById('Error').textContent='';
+
+    // fetch Urls //
     const url= `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url).then(res=>res.json())
-    .then(data=>{    
-        loadData(data.docs.slice(0,4))
+    .then(data=>{ 
+      
+        // slice array to show 10 results //   
+        loadData(data.docs.slice(0,10))
+        // check is result matched or not //
        if(data.docs.length===0){
+
+        //    remove  result section //
         const totalResults=document.getElementById('totalresults').textContent='';
+        // set text error for Not matching results //
         const notMatched=document.getElementById('not-matched').innerText="Search Results did not matched"
        }
        else{
-        const totalResults=document.getElementById('totalresults').innerText=`shwowing ${data.docs.slice(0,4).length} of  ${data.docs.length} results `   
+        const totalResults=document.getElementById('totalresults').
+        //    showimg 10 results //
+        innerText=`shwowing ${data.docs.slice(0,10).length} of  ${data.docs.length} Books `   
        }
     });
    }
 }
    const loadData= (books=>{
     books.forEach(book=>{
-        if(!book){
-            console.log('Eror');
 
+            //  check for Not match search //
+        if(!book){
+            
+            //   show results didnot matched //
             const Noresult=document.getElementById('not-matched').innerText="Not MAtched"
         }
+
+        // check for the searchtext is Exists ///
         else{
             const section=document.getElementById('results');
    
@@ -47,10 +71,17 @@ const ViewData=()=>{
   </div>
 </div>
     `;
-
+        //  append search result //
     section.appendChild(div);
         }
-    })
+    }) 
+    //  Toggle Display None ///
+    toggoleLoader('none')
 
    
-})
+})       
+
+    //   LODER toggle ///
+    const toggoleLoader=(displayProperty)=>{
+        const toggle=document.getElementById('loader').style.display=displayProperty;
+    }
