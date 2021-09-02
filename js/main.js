@@ -52,7 +52,6 @@ const ViewData=()=>{
 }
    const loadData= (books=>{
     books.forEach(book=>{
-        console.log(book);
 
             //  check for Not match search //
         if(!book){
